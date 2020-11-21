@@ -1,8 +1,16 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
-  end
+    @categories = Category.all
 
+    cate = params[:cate]
+
+    if !cate.nil?
+      @posts = Post.where(:category_id => cate)
+    else
+      @posts = Post.all
+    end
+  end
+  
   def show
     @post = Post.find(params[:id])
   end
