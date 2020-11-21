@@ -1,7 +1,9 @@
-<h3> Category: <%= @post.category.category %> </h3>
-<h3><%= @post.title %></h3>
-<p><%= @post.content %> </p>
+<div class="container mt-3">
+    <h3> Category: <%= @post.category.category %> </h3>
+    <h3><%= @post.title %></h3>
+    <p><%= @post.content %> </p>
 
-<%= link_to "Edit", edit_post_path(@post.id) %>
-<%= link_to "Delete", post_path(@post.id), method: :delete %>
-<%= link_to "Back", posts_path %>
+    <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
+    <%= link_to "Delete", post_path(@post.id), method: :delete, class: "btn btn-danger" %>
+    <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
+</div>
