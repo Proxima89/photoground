@@ -1,9 +1,31 @@
-<div class="container mt-3">
-    <h3> Category: <%= @post.category.category %> </h3>
-    <h3><%= @post.title %></h3>
-    <p><%= @post.content %> </p>
+<div class="container col-md-4 mt-3 text-center mt-5 ">
+    <div class="card">
+        <div class="card-header">
+            <h3>  <%= @post.category.category %> </h3>
+        </div>
 
-    <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
-    <%= link_to "Delete", post_path(@post.id), method: :delete, class: "btn btn-danger" %>
-    <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
+        <div class="card-body">
+            <ul class="list-group">
+                <h3><%= @post.title %></h3>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p><%= @post.content %> </p>                       
+                </li>                       
+            </ul>
+        </div>
+
+        <div class="justify-content-center mb-3">
+            <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
+            <%= link_to "Delete", post_path(@post.id), method: :delete, class: "btn btn-danger" %>
+            <%= link_to "Back", posts_path, class: "btn btn-secondary" %>          
+        </div>  
+    </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= render 'footer' %>
