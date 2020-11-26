@@ -18,10 +18,10 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    3.times { @post.photos.build }
   end
 
   def create 
+    
     @post = Post.create(post_params)
 
     if @post.save
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category_id, photos: [])
+    params.require(:post).permit(:title, :content, :category_id, :photo)
   end
 end
 
