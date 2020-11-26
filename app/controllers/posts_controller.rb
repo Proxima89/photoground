@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
+    
     @categories = Category.all
-
+    
     cate = params[:cate]
 
     if !cate.nil?
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    3.times { @post.photos.build }
   end
 
   def create 
@@ -53,6 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category_id)
+    params.require(:post).permit(:title, :content, :category_id, photos: [])
   end
 end
+

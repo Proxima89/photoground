@@ -2,9 +2,14 @@
 <html>
   <head>
     <title>Photoground</title>
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <%# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> %>
+    <link src="https://unpkg.com/@popperjs/core@2">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,23 +19,21 @@
 <nav class="navbar navbar-inverse text-left">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Dariusz photography</a>
+      <a class="navbar-brand" href="#">Dariusz Photography</a>
     </div>
     <div class="row text-left">
-      <ul><a href="#">About</a></ul>
+      <ul><a href="#">About Me</a></ul>
       <ul><a href="#">My Work</a></ul>
       <ul><a href="#">Contacts</a></ul>
-   
-    
     </div>
     <ul class="row navbar-right">
       <ul><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></ul>
       <ul><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></ul>
-       <ul><a href="#"><span class="glyphicon"></span> <%= link_to "Create New Post", new_post_path %></a></ul>
-              
+       <ul><a href="#"><span class="glyphicon"></span> <%= link_to "Create New Post", new_post_path %></a></ul>            
   </div>
 </nav>
 
     <%= yield %> 
   </body>
+  
 </html>

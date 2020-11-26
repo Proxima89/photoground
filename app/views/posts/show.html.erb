@@ -1,34 +1,38 @@
-<div class="container text-center mt-5" style="display: flex; justify-content:center;">
-    <div class="col-md-4 mt-3">
-        <div class="card">
-            <div class="card-header">
-               <h5> <%= @post.category.category %> </h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-group">                      
-                       <h5><%= @post.title %></h5>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <p><%= @post.content %> </p>                      
-                    </li>
-                </ul>
-            </div>
+<div class="container col-md-4 mt-3 text-center mt-5 ">
+    <div class="card">
+        <div class="card-header">
+            <h3>  <%= @post.category.category %> </h3>
         </div>
-        <div class="justify-content-center text-center mt-3">
-            <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
-            <%= link_to "Back", posts_path, class: "btn btn-secondary" %>
-            <%= link_to "Delete", post_path(@post.id), method: :delete, class: "btn btn-danger" %>     
-        </div>
-    </div>    
-</div>
 
-<div class="container">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+        <div class="card-body">
+            <ul class="list-group">
+                <h3><%= @post.title %></h3>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p><%= @post.content %> </p>                       
+                </li>                       
+            </ul>
+                <% if @post.photos.attached? %>
+                    <%= cl_image_tag post.photo.key, width: 230, height: 320, crop: "fill"%>                                 
+                <% else %>
+                 <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="230", height="320">
+                <% end %>
+        </div>
+
+        <div class="justify-content-center mb-3">
+            <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
+            <%= link_to 'delete',{ controller: "posts", action: "destroy", id: @post.id }, 
+                data: { confirm: 'Are you sure?' }, 
+                method: :delete %>
+            <%= link_to "Back", posts_path, class: "btn btn-secondary" %>          
+        </div>  
+    </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%= render 'footer' %>
