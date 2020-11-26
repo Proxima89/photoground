@@ -16,14 +16,14 @@
                             <div class="card-body">
                              <h3> <%= link_to post.title, post_path(post.id) %> </h3>
                                     <% if post.photo.attached? %> 
-                                    <%= cl_image_tag post.photo.key, width: 350, height: 400, crop: "fill"%>                                 
+                                      <%= cl_image_tag post.photo.key, width: 350, height: 400, crop: "fill"%>                                 
                                     <% else %>
-                                    <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
-                                    <% end %>                                  
-                        
-                            <div class="text-center">
-                              <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
-                            </div>
+                                      <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
+                                    <% end %>                                                        
+                              <div class="text-center">
+                                <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
+                              </div>
+
                             </div>
                         </div>
                     </div>
@@ -51,6 +51,7 @@
         </div>    
     </div>
 </div>
+
 <br>
 <br>
 <br>
