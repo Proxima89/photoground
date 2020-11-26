@@ -6,40 +6,34 @@
         </div>
     </div>
 <div class="container text-center mt-5">
-    <div class="row">
-    
+    <div class="row">  
         <div class="col-md-8">
             <div class="row">
                 <% @posts.each do |post| %>
                     <div class="col-md-6 mt-3">
-                        <div class="card mt-6">           
+                        <div class="card mt-6">
+                                                
                             <div class="card-body">
                              <h3> <%= link_to post.title, post_path(post.id) %> </h3>
-                                <div class="card-image d-block">
-                                <div class="col">
-                                <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="Toy car on the road." />
-                                </div>
-
-                                    <% if post.photo.attached? %> <img >
-                                    <%= cl_image_tag post.photo.key, width: 230, height: 320, crop: "fill"%>                                 
+                                    <% if post.photo.attached? %> 
+                                      <%= cl_image_tag post.photo.key, width: 350, height: 400, crop: "fill"%>                                 
                                     <% else %>
-                                    <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="230", height="320">
-                                    <% end %>
-                                    <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
-                                    <a class="next" onclick="changeSlide(1)">&#10095;</a>
-                                </div>
-                               <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
+                                      <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
+                                    <% end %>                                                        
+                              <div class="text-center">
+                                <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
+                              </div>
+
                             </div>
                         </div>
                     </div>
                 <% end %> 
             </div>   
         </div>
-
         <div class="col-md-4 mt-3">
             <div class="card">
                 <div class="card-header">
-                    Categories
+                   <%= link_to "All Categories", posts_path() %>
                 </div>
 
                 <div class="card-body">
@@ -50,6 +44,7 @@
                         <span class="badge badge-primary badge-pill"> <%= category.posts.count %> </span>
                         </li>
                         <% end %>
+                        
                     </ul>
                 </div>
             </div>
@@ -62,9 +57,54 @@
 <br>
 <br>
 <br>
-<%= render 'footer' %>
+    <div class="row">
+    <div class="col">
+       <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(1)" class="hover-shadow preview" alt="Toy car on the road." />
+    </div>
+    <div class="col">
+       <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(2)" class="hover-shadow preview" alt="Toy car exploring offroad." />
+    </div>
+    <div class="col">
+       <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(3)" class="hover-shadow preview" alt="Toy car in the city" />
+    </div>
+  </div>
+  
+  <div id="Lightbox" class="modal">
+  
+    <span class="close pointer" onclick="closeLightbox()">&times;</span>
+    <div class="modal-content">
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car on the road." />
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car exploring offroad." />
+      </div>    
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car in the city." />
+      </div>
+    
+      <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+          
+      <div class="dots">
+        <div class="col">
+          <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="Toy car on the road." />
+        </div>
+        <div class="col">
+          <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="Toy car exploring offroad." />
+        </div>
+        <div class="col">
+          <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="Toy car in the city" />
+        </div>
+      </div>
+    </div> 
+  </div>
 
+
+<%= render 'footer' %>
 <script>
+// Initialize here and run showSlide() to give your lightbox a default state.
+
 let slideIndex = 1;
 showSlide(slideIndex);
 

@@ -18,18 +18,13 @@
   <!--Navbar -->
 <nav class="navbar navbar-inverse text-left">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Dariusz Photography</a>
-    </div>
-    <div class="row text-left">
+<h5> <%= link_to "Dariusz Photography", posts_path() %> </h5> 
+    <div class="row text-center">
       <ul><a href="#">About Me</a></ul>
       <ul><a href="#">My Work</a></ul>
       <ul><a href="#">Contacts</a></ul>
     </div>
-    <ul class="row navbar-right">
-      <ul><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></ul>
-      <ul><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></ul>
-       <ul><a href="#"><span class="glyphicon"></span> <%= link_to "Create New Post", new_post_path %></a></ul>            
+      <h5> <%= link_to "Create New Post", new_post_path %> </h5>           
   </div>
 </nav>
 
