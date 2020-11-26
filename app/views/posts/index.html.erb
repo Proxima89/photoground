@@ -5,15 +5,31 @@
             <a class="btn btn-success" href="#">Contact with me</a>
         </div>
     </div>
-<div class="container mt-5">
+<div class="container text-center mt-5">
     <div class="row">
+    
         <div class="col-md-8">
             <div class="row">
                 <% @posts.each do |post| %>
                     <div class="col-md-6 mt-3">
                         <div class="card mt-6">           
                             <div class="card-body">
-                                <h3> <%= link_to post.title, post_path(post.id) %> </h3>                
+                             <h3> <%= link_to post.title, post_path(post.id) %> </h3>
+                                <div class="card-image d-block">
+                                <div class="col">
+                                <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="Toy car on the road." />
+                                </div>
+
+                                    <% if post.photos.attached? %> <img >
+                                    <%= cl_image_tag post.photo.key, width: 230, height: 320, crop: "fill"%>                                 
+                                    <% else %>
+                                    <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="230", height="320">
+                                    <% end %>
+                                    <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
+                                    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+                                </div>
+                                                   
                                     <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
                             </div>
                         </div>
@@ -48,3 +64,58 @@
 <br>
 <br>
 <%= render 'footer' %>
+
+<script>
+let slideIndex = 1;
+showSlide(slideIndex);
+
+// You are providing the functionality for your clickable content, which is 
+// your previews, dots, controls and the close button.
+
+function openLightbox() {
+  document.getElementById('Lightbox').style.display = 'block';
+}
+
+function closeLightbox() {
+  document.getElementById('Lightbox').style.display = 'none';
+};
+
+// Note that you are assigning new values here to our slidIndex.
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+};
+
+function toSlide(n) {
+  showSlide(slideIndex = n);
+};
+
+// This is your logic for the light box. It will decide which slide to show 
+// and which dot is active.
+
+function showSlide(n) {
+  const slides = document.getElementsByClassName('slide');
+  let modalPreviews = document.getElementsByClassName('modal-preview');
+
+  if (n > slides.length) {
+    slideIndex = 1; 
+  };
+  
+  if (n < 1) {
+    slideIndex = slides.length;
+  };
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  };
+  
+  for (let i = 0; i < modalPreviews.length; i++) {
+    modalPreviews[i].className = modalPreviews[i].className.replace(' active', '');
+  };
+  
+  slides[slideIndex - 1].style.display = 'block';
+  modalPreviews[slideIndex - 1].className += ' active';
+};
+
+
+</script>

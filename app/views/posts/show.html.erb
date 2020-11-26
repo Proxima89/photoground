@@ -11,11 +11,18 @@
                 <p><%= @post.content %> </p>                       
                 </li>                       
             </ul>
+                <% if @post.photos.attached? %>
+                    <%= cl_image_tag post.photo.key, width: 230, height: 320, crop: "fill"%>                                 
+                <% else %>
+                 <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="230", height="320">
+                <% end %>
         </div>
 
         <div class="justify-content-center mb-3">
             <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
-            <%= link_to "Delete", post_path(@post.id), method: :delete, class: "btn btn-danger" %>
+            <%= link_to 'delete',{ controller: "posts", action: "destroy", id: @post.id }, 
+                data: { confirm: 'Are you sure?' }, 
+                method: :delete %>
             <%= link_to "Back", posts_path, class: "btn btn-secondary" %>          
         </div>  
     </div>

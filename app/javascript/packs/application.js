@@ -18,3 +18,5 @@ require("channels")
 
 import "bootstrap";
 import "./application.scss";
+import 'jquery';
+
