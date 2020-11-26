@@ -1,10 +1,9 @@
 <div class="flex-grow d-flex justify-content-center">  
     <div class="col-md-6">
         <h3> Create New Post </h3>
-        <%= select_date Date.today, :prefix => :start_date %>
         <div class="card mt-5">
             <div class="card-body">
-                <%= form_for @post, :html => { :multipart => true } do |f| %>
+                <%= form_for @post do |f| %>
 
                 <div class="form-group">
                     <%= f.label :title %>
@@ -14,12 +13,9 @@
                 <div class="form-group">
                     <%= f.label :content %>
                     <%= f.text_area :content, class: "form-control" %>
+                    <%= f.file_field :photo, as: :file %>
                 </div>
-                <div class="form-group">
-                    <%= f.fields_for :photos do |fp| %>
-                    <%= fp.file_field :image %>
-                    <% end %>    
-                </div>
+                
                 <div class="form-group">
                     <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
                 </div>
