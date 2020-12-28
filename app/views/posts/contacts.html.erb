@@ -1,0 +1,49 @@
+<div class="container border">
+  <h2 class="text-center text-secondary mt-3"> Contact with me </h2>
+    <div class="text-content mt-5 row "  style="justify-content: center; ">
+        <div class="row text-center rounded" style="display: block; border: 0.1px solid black; width: 600px; border-shadow: 10px; padding: 10px;">
+                <br>
+            <p style="text-align: left;"> Email me to: <strong> dariusz@dariusz.com </strong> with any questions or inquiries or you can call me on <strong> +44 789-900-1234 </strong>. I would be happy to answer your questions and set up a meeting with you. Dariusz Semesinuki Professional Photographer can help you with photos for any occasion.
+                <br>
+                <br>
+            </p>              
+        </div>
+    </div>                
+
+
+  <div id="contacts" class="section-bottom bg-white rounded">
+    <div class="mb-20">
+      <br>
+    
+      <div class="fcf-body rounded mx-auto d-block">
+        <div id="fcf-form" style="display: flex; justify-content: center;">
+          <form id="fcf-form-id" class="fcf-form-class col-xs-12 col-sm-6 text-center" method="post" action="contact-form-process.php">      
+            <h4 class="text-center">You can also send me a direct message</h4>
+            <div class="fcf-form-group">
+                <label for="Name" class="fcf-label">Your name</label>
+                <div class="fcf-input-group">
+                    <input type="text" id="Name" name="Name" class="fcf-form-control" placeholder="Type your name here" required>
+                </div>
+            </div>
+            <div class="fcf-form-group">
+                <label for="Email" class="fcf-label">Your e-mail</label>
+                <div class="fcf-input-group">
+                    <input type="email" id="Email" name="Email" class="fcf-form-control" placeholder="example@abc.com" required>
+                </div>
+            </div>
+            <div class="fcf-form-group">
+                <label for="Message" class="fcf-label">Your message</label>
+                <div class="fcf-input-group">
+                    <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required ></textarea>
+                </div>
+            </div>
+            <div class="fcf-form-group">
+                <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-md fcf-btn-block">Send Message</button>
+            </div>
+        </form>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<%= render "footer" %>

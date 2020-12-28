@@ -20,9 +20,9 @@
   <div class="container-fluid">
 <h5> <%= link_to "Dariusz Photography", posts_path() %> </h5> 
     <div class="row text-center">
-      <ul><a href="#">About Me</a></ul>
-      <ul><a href="#">My Work</a></ul>
-      <ul><a href="#">Contacts</a></ul>
+      <ul><a href="#"><%= link_to "About Me", posts_about_path %></a></ul>
+      <ul><a href="#"><%= link_to "My Work", posts_my_work_path %></a></ul>
+      <ul><a href="#"><%= link_to "Contacts", posts_contacts_path %></a></ul>
     </div>
       <h5> <%= link_to "Create New Post", new_post_path %> </h5>    
   </div>

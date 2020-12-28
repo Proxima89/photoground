@@ -1,4 +1,15 @@
 class PostsController < ApplicationController
+
+  def about 
+  end
+  
+  def contacts 
+  end
+
+  def my_work 
+    @posts = Post.all
+  end
+
   def index
     
     @categories = Category.all
