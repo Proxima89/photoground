@@ -1,7 +1,17 @@
-<div class="container">
-    <h1>New Category</h1>
-    <%= render 'form', category: @category %>
 
-    <%= link_to 'Back', categories_path %>
+<div class="container mt-5" >
+    <div class="card mt-5" style="display: flex; text-align: center;">
 
+        <div class="title mt-2" >       
+
+            <%= render 'form', category: @category %>
+        </div>
+        <div class="card-body" style="justify-content: space-around; display: flex;">
+            <%= link_to 'Back', categories_path %>
+        </div>
+    </div>    
 </div>
+
+
+
+  
