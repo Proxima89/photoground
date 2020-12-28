@@ -22,7 +22,7 @@
                     <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
                 </div>
                    <ul class="text-right">
-                    <%= link_to 'Create New Category', categories_path %>                 
+                    <%= link_to 'Your Categories', categories_path %>                 
                    </ul> 
 
                 <%= f.submit "Publish", class: "btn btn-outline-primary" %>
