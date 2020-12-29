@@ -5,33 +5,34 @@
             <a href="#"><%= link_to "Contact With Me", posts_contacts_path, class: 'btn btn-success' %></a>
         </div>
     </div>
-<div class="container text-center mt-5">
+<div class="text-center mt-5">
     <div class="row">  
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="row">
                 <% @posts.each do |post| %>
                     <div class="col-md-6 mt-3">
                         <div class="card mt-6">
                                                 
-                            <div class="card-body">
+                            <div class="car-body">
                              <h3> <%= link_to post.title, post_path(post.id) %> </h3>
-                                    <% if post.photo.attached? %> 
-                                    <%= cl_image_tag post.photo.key, width: 350, height: 400, crop: "fill"%>                                 
-                                    <% else %>
-                                    <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
-                                    <% end %>                                  
+                                  <% if post.photo.attached? %> 
+                                  <%= cl_image_tag post.photo.key, width: 550, height: 620, crop: "fill"%>                                 
+                                  <% else %>
+                                  <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
+                                  <% end %>                                  
                         
-                            <div class="text-center">
-                              <%= link_to "View", post_path(post.id), class: 'btn btn-primary' %>                
-                            </div>
+                              <div class="text-center .align-content-center
+" style="position: absolute; top: 90%; align-text: center;" >
+                              <%= link_to "Check Details", post_path(post.id), class: 'btn btn-primary opacity-5' %>                
+                              </div>
                             </div>
                         </div>
                     </div>
                 <% end %> 
             </div>   
         </div>
-        <div class="col-md-4 mt-3 keep">
-            <div class="card">
+        <div class="col-md-3 mt-3">
+            <div class="card" style="position: sticky; top: 1em;">
                 <div class="card-header">
                    <%= link_to "All Categories", posts_path() %>
                 </div>
