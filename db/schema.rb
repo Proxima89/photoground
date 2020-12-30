@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_12_30_152006) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.text "category"
     t.datetime "created_at", precision: 6, null: false
