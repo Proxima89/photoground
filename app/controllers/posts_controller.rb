@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :my_work]
+
   def about 
   end
   
@@ -32,9 +34,8 @@ class PostsController < ApplicationController
   end
 
   def create 
-    
     @post = Post.create(post_params)
-
+    @post.user = current_user
     if @post.save
       redirect_to @post
     else
@@ -57,6 +58,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy 
+    respond_to do |format|
+      format.html {redirect_to posts_url, notice: 'Post has been deleted'}
+      format.json { head :no_content}
+    end
     @post = Post.find(params[:id])
 
     @post.destroy
@@ -64,6 +70,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :category_id, :photo)

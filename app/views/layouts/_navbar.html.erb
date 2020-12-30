@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse text-center">
+    <div class="container-fluid">
+        <div class="logo float-left">
+            <h5> <%= link_to "Dariusz Photography", posts_path() %> </h5> 
+        </div>
+
+        <div class="row text-center">
+            <ul><%= link_to "About Me", posts_about_path %></ul>
+            <ul><%= link_to "My Work", posts_my_work_path %></ul>
+            <ul><%= link_to "Contacts", posts_contacts_path %></ul>
+        </div>
+
+        <div class="row float-right text-center">
+            <% if current_user %>
+                <ul> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></ul>
+                <ul><%= link_to 'Sign Up', new_user_registration_path %></ul>
+                <ul><%= link_to 'Sign In', new_user_session_path %></ul>
+                <ul><h5> <%= link_to "Create New Post", new_post_path %> </h5></ul>
+            <% end %>
+        </div>
+
+    </div>
+</nav>
