@@ -1,7 +1,9 @@
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1597378080785-fc16687451ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);">
+    <div class="banner" style=" background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605750454069-3a7a6ba752cd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80);">
         <div class="container">
-            <h1><strong>Dariusz Semeniku proffesional photographer</strong>!</h1>
-            <p>I have my own studio and I am perfectly adapted to work remotely</p>
+        
+            <h1 class="display-1"><span>D</span><span>a</span><span>r</span><span>i</span><span>u</span><span>s</span><span>z</span> <span>S</span><span>e</span><span>m</span><span>e</span><span>n</span><span>i</span><span>k</span><span>u</span></h1>
+        
+            <p class="display-5 text-light">Professional photographer with own studio and perfectly adapted to work remotely</p>
             <a href="#"><%= link_to "Contact With Me", posts_contacts_path, class: 'btn btn-success' %></a>
         </div>
     </div>
@@ -20,9 +22,9 @@
                                   <% else %>
                                   <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
                                   <% end %>                                                        
-                              <div class="text-center .align-content-center
-" style="position: absolute; top: 90%; align-text: center;" >
-                              <%= link_to "Check Details", post_path(post.id), class: 'btn btn-primary opacity-5' %>                
+                              <div class="text-center .align-content-center" style="position: absolute; top: 90%; align-text: center; width: 100%;" >
+                              <%= link_to "View The Details", post_path(post.id), class: 'btn btn-primary opacity-5' %>                
+
                               </div>
                             </div>
                         </div>
@@ -31,7 +33,7 @@
             </div>   
         </div>
         <div class="col-md-3 mt-4">
-            <div class="card" style="position: sticky; top: 1em;">
+            <div class="card" style="position: sticky; top: 5em;">
                 <div class="card-header">
                    <%= link_to "All Categories", posts_path() %>
                 </div>
