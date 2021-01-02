@@ -3,20 +3,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<nav class="navbar navbar-expand-md navbar-light">			
-						<a class="navbar-brand" href="#" target="_blank"><img src="../assets/images/dariusz.png" alt=""></a>	
+					<nav class="navbar navbar-expand-md navbar-light">
+                        <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px">
 						<%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button> %>					
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto py-4 py-md-0">
+							<ul class="navbar-nav ml-auto py-4 py-md-0" >
                                 <% if current_user %>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">                         
                                         <a class="nav-link dropdown-toggle" data-toggle=" dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Admin Panel</a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#"><%= link_to "Create New Post", new_post_path %></a>
-                                            <a class="dropdown-item" href="#">                                                                <%= link_to 'My Categories', categories_path %></a>
-                                            <a class="dropdown-item" href="#"><%= link_to 'Sign Up', new_user_registration_path %></a>
+                                            <a class="dropdown-item" href="#"><%= link_to "Create Post", new_post_path %></a>
+                                            <a class="dropdown-item" href="#"><%= link_to 'My Categories', categories_path %></a>
+                                            <a class="dropdown-item" href="#"><%= link_to 'Create Category', new_category_path %></a>
                                             <a class="dropdown-item" href="#"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
                                         </div>
                                     </li>
@@ -25,10 +25,10 @@
 									<a href="#"><%= link_to "Home", posts_path(), :class => "nav-link"%> </a>
 								</li>
 								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "About Me", posts_about_path(), :class => "nav-link"%> </a>
+									<a href="#"><%= link_to "Album", posts_my_work_path(), :class => "nav-link"%> </a>
 								</li>
 								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "My Work", posts_my_work_path(), :class => "nav-link"%> </a>
+									<a href="#"><%= link_to "About Me", posts_about_path(), :class => "nav-link"%> </a>
 								</li>
 								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
 									<a href="#"><%= link_to "Contacts", posts_contacts_path(), :class => "nav-link"%> </a>

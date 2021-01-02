@@ -1,35 +1,43 @@
-<div class="flex-grow d-flex justify-content-center mt-5">  
-       
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card">
+        <hr style="height:2px; border-width:0; color:white; background-color:black;">
+        <div class="flex-grow d-flex justify-content-center">  
+            <div class="col-md-6">
+                <h3> Create New Post </h3>
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <%= form_for @post do |f| %>
 
-    <div class="col-md-6">
-        <h3> Create New Post </h3>
-        <div class="card mt-5">
-            <div class="card-body">
-                <%= form_for @post do |f| %>
+                        <div class="form-group">
+                            <%= f.label :title %>
+                            <%= f.text_field :title, class: "form-control" %>   
+                        </div>
+                       
+                        <div class="form-group">
+                            <%= f.label :content %>
+                            <%= f.text_area :content, class: "form-control" %>
+                             <br>
+                            <%= f.file_field :photo, as: :file %>
+                        </div>
+                        
+                        <div class="form-group">
+                            <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
+                        </div>
 
-                <div class="form-group">
-                    <%= f.label :title %>
-                    <%= f.text_field :title, class: "form-control" %>   
+                        <div class="d-flex justify-content-around">
+                            <%= f.submit "Publish", class: "btn btn-outline-primary" %>
+                            <%= link_to 'My Categories', categories_path, :class => "btn btn-outline-success" %>                 
+                            <%= link_to "Back", posts_path, class: "btn btn-outline-secondary" %>
+                        </div>  
+
+                    <% end %>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <%= f.label :content %>
-                    <%= f.text_area :content, class: "form-control" %>
-                    <%= f.file_field :photo, as: :file %>
-                </div>
-                
-                <div class="form-group">
-                    <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
-                </div>
-                   <ul class="text-right">
-                    <%= link_to 'Your Categories', categories_path %>                 
-                   </ul> 
-
-                <%= f.submit "Publish", class: "btn btn-outline-primary" %>
-                <%= link_to "Back", posts_path, class: "btn btn-outline-secondary" %>
-    
-            <% end %>
             </div>
         </div>
+        <hr style="height:2px; border-width:0; color:white; background-color:black;">
     </div>
 </div>

@@ -1,17 +1,19 @@
-
-<div class="container mt-5" >
-    <div class="card mt-5" style="display: flex; text-align: center;">
-
-        <div class="title mt-2" >       
-
-            <%= render 'form', category: @category %>
+<br>
+<br>
+<div class="container" >
+<br>
+    <div class="card">
+                <hr style="height:2px; border-width:0; color:white; background-color:black;">       
+        <div class="card-body">
+            <div class="card mt-4" style="display: flex; text-align: center;">
+                <%= render 'form', category: @category %>
+            </div>
+            <br>
+            <div class="car-body" style="justify-content: space-around; display: flex; ">
+                <%= link_to 'Back', categories_path, class: "btn btn-outline-secondary"  %>
+            </div>  
         </div>
-        <div class="card-body" style="justify-content: space-around; display: flex;">
-            <%= link_to 'Back', categories_path %>
-        </div>
-    </div>    
+            <hr style="height:2px; border-width:0; color:white; background-color:black;">
+    </div>
+
 </div>
-
-
-
-  

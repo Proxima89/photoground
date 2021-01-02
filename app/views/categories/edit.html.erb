@@ -1,13 +1,17 @@
-<div class="container mt-5">
-    <div class="card mt-5" style="display: flex; text-align: center;">
-
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="card" style="display: flex; text-align: center;">
+        <hr style="height:2px; border-width:0; color:white; background-color:black;">
         <%= render 'edit_form', category: @category %>
             <div class="back" style="text-align: center;">
-                    <div class="card-body" style="justify-content: space-around; display: flex;">
-                        <%= link_to 'Show', @category %>
-                        <%= link_to 'Back', categories_path %>
-                    </div>    
+                <div class="card-body" style="justify-content: space-between; display: flex;">
+                    <%= link_to 'Show', @category, :class => "btn btn-outlined-success" %>
+                    <%= link_to 'Back', categories_path, :class => "btn btn-outlined-secondary" %>
+                </div>    
             </div>
+        <hr style="height:2px; border-width:0; color:white; background-color:black;">
     </div>        
 </div>
 
