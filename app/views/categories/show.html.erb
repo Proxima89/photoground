@@ -1,14 +1,21 @@
-<div class="container mt-5">
-<h3> This is your category </h3>
-<p id="notice" style="color: orange;"><%= notice %></p>
-  <div class="card mt-5" style="display: flex; text-align: center;">
-    <strong>Category:</strong>
-    <div class="card-title mt-3" style="color: green;">       
-      <h3 style="font-family: serif; "> <%= @category.category %> </h3>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="card text-center">
+  <hr style="height:2px; border-width:0; color:white; background-color:black;">
+    
+    <div class="card mt-5" style="display: flex; text-align: center;">
+      <strong>Category:</strong>
+      <div class="card-title mt-3" style="color: green;">       
+        <h3 style="font-family: serif; "> <%= @category.category %> </h3>
+      </div>
+      <div class="card-body" style="justify-content: space-around; display: flex;">
+        <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-outline-success"  %> 
+        <%= link_to 'Back', categories_path, class: "btn btn-outline-secondary"  %>
+      </div>
     </div>
-    <div class="card-body" style="justify-content: space-around; display: flex;">
-      <%= link_to 'Edit', edit_category_path(@category) %> 
-      <%= link_to 'Back', categories_path %>
-    </div>
-  </div>
+    <p id="notice" style="color: orange;"><%= notice %></p>
+    <hr style="height:2px; border-width:0; color:white; background-color:black;">
+  </div>  
 </div>

@@ -9,13 +9,16 @@
                 <h3><%= @post.title %></h3>
             </ul>
                 <% if @post.photo.attached? %>
-                    <%= cl_image_tag @post.photo.key, width: 1400, height: 1200, crop: "fit"%>                                 
+                    <%= cl_image_tag @post.photo.key, width: 1400, height: 1200, crop: "fit", :class => "rounded" %>                                 
                 <% else %>
                  <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="1400", height="1200">
                 <% end %>
                 <div class="d-flex justify-content-center mt-4">
-                    <li class="justify-content-around text-area" style="display: block; border: solid 1px; width:550px; height: 620;">
-                    <p class="mt-2 float-center"><strong>Descriptipn:</strong> <div class="text-area float-center"><%= @post.content %> </p> </div>                      
+                    <li class="justify-content-around text-area rounded" style="display: block; border: solid 1px; width: 80%; ">
+                    <h6 class="mt-2 mb-2 float-center"><strong>Descriptipn:</strong> </h6>
+                   
+                     <div class="text-area float-center "><%= @post.content %>  </div> 
+                     <br>                     
                     </li>                       
                 </div>
         </div>
