@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :my_work]
+before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :my_work] # Authentications activated, the users can see only these pages
 
   def about 
   end
@@ -9,7 +9,7 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
   end
 
   def my_work 
-    @posts = Post.all
+    @posts = Post.all # The page with all the images
   end
 
   def index

@@ -5,3 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
 end
+
+# In this model is designed to be placed only 1 admin registration

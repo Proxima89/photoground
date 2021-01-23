@@ -6,3 +6,4 @@ class Post < ApplicationRecord
     has_one_attached :photo
     belongs_to :category
 end
+# This is the model for the pictures/posts
