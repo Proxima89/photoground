@@ -4,16 +4,14 @@
             <div class="row text-center">
                 <% @posts.each do |post| %>
                     <div class="col-md-6 mt-3">
-                        <div class="card mt-6">
-                                                
-                            <div class="card-body">
+                        <div class="mt-6">                                             
+                            <div class="card">
                              <h3> <%= link_to post.title, post_path(post.id) %> </h3>
                                     <% if post.photo.attached? %> 
-                                    <%= cl_image_tag post.photo.key, width: 690, crop: "fill"%>                                 
+                                    <%= cl_image_tag post.photo.key, crop: "fill", :style => "width: 100%;", :class => "rounded"%>                                 
                                     <% else %>
                                     <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
-                                    <% end %>                                  
-                        
+                                    <% end %>                                                       
                                 <div class="text-center .align-content-center" style="position: absolute; top: 90%; align-text: center; width: 100%;" >
                                 <%= link_to "View The Details", post_path(post.id), class: 'btn btn-primary opacity-5' %>
                                 </div>
@@ -23,104 +21,4 @@
                 <% end %> 
             </div>   
         </div>
-
-     <div class="row">
-    <div class="col">
-       <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(1)" class="hover-shadow preview" alt="Toy car on the road." />
-    </div>
-    <div class="col">
-       <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(2)" class="hover-shadow preview" alt="Toy car exploring offroad." />
-    </div>
-    <div class="col">
-       <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" onclick="openLightbox();toSlide(3)" class="hover-shadow preview" alt="Toy car in the city" />
-    </div>
-  </div>
-  
-  <div id="Lightbox" class="modal">
-  
-    <span class="close pointer" onclick="closeLightbox()">&times;</span>
-    <div class="modal-content">
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car on the road." />
-      </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car exploring offroad." />
-      </div>    
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="image-slide" alt="Toy car in the city." />
-      </div>
-    
-      <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
-          
-      <div class="dots">
-        <div class="col">
-          <img src="https://images.unsplash.com/photo-1503753611162-ac7f3aa44d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="Toy car on the road." />
-        </div>
-        <div class="col">
-          <img src="https://images.unsplash.com/photo-1539070487879-d6d869318984?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="Toy car exploring offroad." />
-        </div>
-        <div class="col">
-          <img src="https://images.unsplash.com/photo-1530870110042-98b2cb110834?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="Toy car in the city" />
-        </div>
-      </div>
-    </div> 
-  </div>
-
 <%= render 'footer' %>
-<script>
-// Initialize here and run showSlide() to give your lightbox a default state.
-
-let slideIndex = 1;
-showSlide(slideIndex);
-
-// You are providing the functionality for your clickable content, which is 
-// your previews, dots, controls and the close button.
-
-function openLightbox() {
-  document.getElementById('Lightbox').style.display = 'block';
-}
-
-function closeLightbox() {
-  document.getElementById('Lightbox').style.display = 'none';
-};
-
-// Note that you are assigning new values here to our slidIndex.
-
-function changeSlide(n) {
-  showSlide(slideIndex += n);
-};
-
-function toSlide(n) {
-  showSlide(slideIndex = n);
-};
-
-// This is your logic for the light box. It will decide which slide to show 
-// and which dot is active.
-
-function showSlide(n) {
-  const slides = document.getElementsByClassName('slide');
-  let modalPreviews = document.getElementsByClassName('modal-preview');
-
-  if (n > slides.length) {
-    slideIndex = 1; 
-  };
-  
-  if (n < 1) {
-    slideIndex = slides.length;
-  };
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  };
-  
-  for (let i = 0; i < modalPreviews.length; i++) {
-    modalPreviews[i].className = modalPreviews[i].className.replace(' active', '');
-  };
-  
-  slides[slideIndex - 1].style.display = 'block';
-  modalPreviews[slideIndex - 1].className += ' active';
-};
-
-
-</script>

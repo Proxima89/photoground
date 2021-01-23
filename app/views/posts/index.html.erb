@@ -1,27 +1,24 @@
-    <div class="banner" style=" background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605750454069-3a7a6ba752cd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80);">
-        <div class="container">   
-            <h1 class="display-1" style="font-size: 44px;"><span>D</span><span>a</span><span>r</span><span>i</span><span>u</span><span>s</span><span>z</span> <span>S</span><span>e</span><span>m</span><span>e</span><span>n</span><span>i</span><span>k</span><span>u</span></h1>
-        
-            <p class="display-5 text-light"><strong>Professional photographer </strong> with own studio and perfectly adapted to work remotely</p>
-            <a href="#"><%= link_to "Contact With Me", posts_contacts_path, class: 'btn btn-success' %></a>
-        </div>
+<div class="banner" style=" background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605750454069-3a7a6ba752cd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80);">
+    <div class="container">   
+        <h1 class="display-1" style="font-size: 44px;"><span>D</span><span>a</span><span>r</span><span>i</span><span>u</span><span>s</span><span>z</span> <span>S</span><span>e</span><span>m</span><span>e</span><span>n</span><span>i</span><span>k</span><span>u</span></h1>      
+        <p class="display-5 text-light"><strong>Professional photographer </strong> with own studio and perfectly adapted to work remotely</p>
+        <a href="#"><%= link_to "Contact With Me", posts_contacts_path, class: 'btn btn-success' %></a>
     </div>
+</div>
 <div class="text-center mt-5 p-1">
     <div class="row p-1">  
         <div class="col-md-9 p-1">
             <div class="row p-1">
                 <% @posts.each do |post| %>
                     <div class="col-md-6 mt-3">
-                        <div class="card mt-6">
-                                                
-                            <div class="car-body">
+                        <div class="card mt-6">                                       
+                            <div class="car-body rounded">
                              <h3> <%= link_to post.title, post_path(post.id) %> </h3>
                                   <% if post.photo.attached? %> 
-                                  <%= cl_image_tag post.photo.key, width: 550, height: 620, crop: "fill"%>                                 
+                                  <%= cl_image_tag post.photo.key, width: 550, height: 620, crop: "fill", :class => "rounded"%>                                 
                                   <% else %>
                                   <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
-                                  <% end %>                                  
-                        
+                                  <% end %>                                                    
                               <div class="text-center .align-content-center" style="position: absolute; top: 90%; align-text: center; width: 100%;" >
                                 <%= link_to "View The Details", post_path(post.id), class: 'btn btn-primary opacity-5' %>     
                               </div>
@@ -36,7 +33,6 @@
                 <div class="card-header">
                    <%= link_to "All Pictures", posts_path() %>
                 </div>
-
                 <div class="card-body">
                     <ul class="list-group">
                         <% @categories.each do |category| %>
@@ -45,7 +41,6 @@
                         <span class="badge badge-primary badge-pill"> <%= category.posts.count %> </span>
                         </li>
                         <% end %>
-                        
                     </ul>
                 </div>
             </div>
