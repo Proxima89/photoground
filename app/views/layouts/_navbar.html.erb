@@ -1,10 +1,10 @@
-<body class="hero-anime">	
+<body class="hero-anime topnav" id="myTopnav">	
 	<div class="navigation-wrap bg-light start-header start-style mb-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<nav class="navbar navbar-expand-md navbar-light">
-                        <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px">
+                       <a href="/"> <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px"> </a>
 						<%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button> %>					
@@ -38,6 +38,8 @@
 										<a class="dropdown-item" href="#">Something else here</a>
 										<a class="dropdown-item" href="#">Another action</a>
 									</div> %>
+									<a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
+										<i class="fa fa-bars"></i>
 								</li>    
 							</ul>
 						</div>						
@@ -122,4 +124,13 @@
 		}
 	});   %>
   })(jQuery); 
+
+  function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 </script>
