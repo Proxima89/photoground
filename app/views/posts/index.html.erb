@@ -13,9 +13,9 @@
                     <div class="col-md-6 mt-3">
                         <div class="card mt-6">                                       
                             <div class="car-body rounded">
-                             <h3> <%= link_to post.title, post_path(post.id) %> </h3>
+                             <h3> <%= link_to post.title, post_path(post.id), class: 'text-dark' %> </h3>
                                   <% if post.photo.attached? %> 
-                                  <%= cl_image_tag post.photo.key, width: 550, height: 620, crop: "fill", :class => "rounded"%>                                 
+                                  <%= cl_image_tag post.photo.key, width: 550, height: 620, crop: "fill", :class => "rounded w-100"%>                                 
                                   <% else %>
                                   <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width="350", height="400">
                                   <% end %>                                                    
@@ -28,17 +28,17 @@
                 <% end %> 
             </div>   
         </div>
-        <div class="col-md-3 mt-4">
-            <div class="card" style="position: sticky; top: 5em;">
+        <div class="col-md-3 mt-4" >
+            <div class="card " style="position: sticky; top: 5em;">
                 <div class="card-header">
-                   <%= link_to "All Pictures", posts_path() %>
+                   <%= link_to "All Pictures", posts_path(), class: 'text-dark' %>
                 </div>
-                <div class="card-body">
-                    <ul class="list-group">
+                <div class="card-body ">
+                    <ul class="list-group ">
                         <% @categories.each do |category| %>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <%= link_to category.category, posts_path(:cate => category.id)  %>
-                        <span class="badge badge-primary badge-pill"> <%= category.posts.count %> </span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center ">
+                        <%= link_to category.category, posts_path(:cate => category.id), class: 'text-dark'  %>
+                        <span class="badge badge-primary badge-pill"> <%= category.posts.count  %> </span>
                         </li>
                         <% end %>
                     </ul>
