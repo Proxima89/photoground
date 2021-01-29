@@ -449,13 +449,14 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /* #Media
 ================================================== */
-@media screen and (max-width: 600px) {
-	.dropdown-menu a:not(:first-child) {display: none;}
-	.dropdown-menu .navbard-nav {
-	  float: right;
-	  display: block;
-	}
-  }
+// @media screen and (max-width: 600px) {
+// 	.dropdown-menu a:not(:first-child) {display:;}
+// 	.dropdown-menu .navbard-nav {
+// 	  float: right;
+// 	  display: block;
+// 	}
+//   }
+// } 
 @media (max-width: 767px) { 
 	h1{
 		font-size: 38px;
