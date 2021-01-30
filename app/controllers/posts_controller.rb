@@ -58,15 +58,14 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy 
+    
     respond_to do |format|
       format.html {redirect_to posts_url, notice: 'Post has been deleted'}
       format.json { head :no_content}
     end
-    @post = Post.find(params[:id])
-
-    @post.destroy
-    redirect_to :action => :index
+    
   end
 
   private

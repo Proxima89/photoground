@@ -14,7 +14,7 @@
             <td><%= category.category %></td>  
             <td><div class="btn btn-outlined"><%= link_to 'Show', category %><br></td> </div>
             <td><div class="btn btn-outlined"><%= link_to 'Edit', edit_category_path(category) %></td></div>
-            <td><div class="btn btn-outlined"> <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %> </td></div>
+            <td><div class="btn btn-outlined"> <%= button_to 'Destroy', category, method: :delete, :onclick => "return confirm('Are you sure you want to delete this category?')", class: "btn btn-outlined" %> </td></div>
           </tr>
         <% end %>
       </tbody>
