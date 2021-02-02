@@ -1,15 +1,12 @@
-<body class="hero-anime topnav mobile-container">	
-	<div class="navigation-wrap bg-light start-header start-style mb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="navbar navbar-expand-md navbar-light">
-                       <a href="/"> <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px"> </a>
-						<%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button> %>					
-						<div class="collapse navbar-collapse" id="navbarSupportedContent myTopnav">
-							<ul class="navbar-nav ml-auto py-4 py-md-0" >
+<body class="hero-anime topnav mobile-container">   
+    <div class="navigation-wrap bg-light start-header start-style mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                       <a href="/"> <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px"> </a>                   
+                        <div class="collapse navbar-collapse topnav" id="navbarSupportedContent myTopnav">
+                            <ul class="topnav navbar-nav ml-auto py-4 py-md-0" >
                                 <% if current_user %>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">                         
                                         <a class="nav-link dropdown-toggle" data-toggle=" dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Admin Panel</a>
@@ -22,109 +19,60 @@
                                     </li>
                                 <% end %>    
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "Home", posts_path(), :class => "nav-link"%> </a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "Album", posts_my_work_path(), :class => "nav-link"%> </a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "About Me", posts_about_path(), :class => "nav-link"%> </a>
-								</li>
-								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-									<a href="#"><%= link_to "Contacts", posts_contacts_path(), :class => "nav-link"%> </a>
-									<%# <div class="dropdown-menu">
-										<a class="dropdown-item" href="#">Action</a>
-										<a class="dropdown-item" href="#">Another action</a>
-										<a class="dropdown-item" href="#">Something else here</a>
-										<a class="dropdown-item" href="#">Another action</a>
-									</div> %>
-								</li>    
-								<%# <li>
-									<a href="javascript:void(0);" class="icon" onclick="myFunction()"></a>
-										<i class="fa fa-bars"></i>
-								</li> %>
-							</ul>
-						</div>						
-					</nav>		
-				</div>
-			</div>
-		</div>
-	</div>
-	<%# <div class="section full-height"> %>
-		<%# <div class="absolute-center">
-			<div class="section">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-				<h1><span>D</span><span>a</span><span>r</span><span>i</span><span>u</span><span>s</span><span>z</span> <span>S</span><span>e</span><span>m</span><span>e</span><span>n</span><span>i</span><span>k</span><span>u</span><br>
-				</h1>
-				<p>Professional Photographer</p>	
-						</div>	
-					</div>		
-				</div>		
-			</div> %>
-			<%# <div class="section mt-5">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<div id="switch">
-								<div id="circle"></div>
-							</div>
-						</div>	
-					</div>		
-				</div>			
-			</div> %>
-		<%# </div> %>
-	<%# </div> %>
-	<%# <div class="my-5 py-5">
-	</div> %> 
+                                    <a href="#"><%= link_to "Home", posts_path(), :class => "nav-link"%> </a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a href="#"><%= link_to "Album", posts_my_work_path(), :class => "nav-link"%> </a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a href="#"><%= link_to "About Me", posts_about_path(), :class => "nav-link"%> </a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a href="#"><%= link_to "Contacts", posts_contacts_path(), :class => "nav-link"%> </a>
+                                </li>    
+                            </ul>
+                        </div>                      
+                    </nav>      
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script>
-/* Please ❤ this if you like it! */
+
 (function($) { "use strict";
 
-	$(function() {
-		var header = $(".start-style");
-		$(window).scroll(function() {    
-			var scroll = $(window).scrollTop();
-		
-			if (scroll >= 10) {
-				header.removeClass('start-style').addClass("scroll-on");
-			} else {
-				header.removeClass("scroll-on").addClass('start-style');
-			}
-		});
-	});		
-		
-	//Animation
-	
-	$(document).ready(function() {
-		$('body.hero-anime').removeClass('hero-anime');
-	});
+    $(function() {
+        var header = $(".start-style");
+        $(window).scroll(function() {    
+            var scroll = $(window).scrollTop();
+        
+            if (scroll >= 10) {
+                header.removeClass('start-style').addClass("scroll-on");
+            } else {
+                header.removeClass("scroll-on").addClass('start-style');
+            }
+        });
+    });     
+        
+    //Animation
+    
+    $(document).ready(function() {
+        $('body.hero-anime').removeClass('hero-anime');
+    });
 
-	//Menu On Hover
-		
-	$('body').on('mouseenter mouseleave','.nav-item',function(e){
-			if ($(window).width() > 750) {
-				var _d=$(e.target).closest('.nav-item');_d.addClass('show');
-				setTimeout(function(){
-				_d[_d.is(':hover')?'addClass':'removeClass']('show');
-				},1);
-			}
-	});	
-	
-	//Switch light/dark
+    //Menu On Hover
+        
+    $('body').on('mouseenter mouseleave','.nav-item',function(e){
+            if ($(window).width() > 750) {
+                var _d=$(e.target).closest('.nav-item');_d.addClass('show');
+                setTimeout(function(){
+                _d[_d.is(':hover')?'addClass':'removeClass']('show');
+                },1);
+            }
+    }); 
 
-	<%# $("#switch").on('click', function () {
-		if ($("body").hasClass("dark")) {
-			$("body").removeClass("dark");
-			$("#switch").removeClass("switched");
-		}
-		else {
-			$("body").addClass("dark");
-			$("#switch").addClass("switched");
-		}
-	});   %>
   })(jQuery); 
 
   function myFunction() {
@@ -136,3 +84,6 @@
   }
 }
 </script>
+
+
+		
