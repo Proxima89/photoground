@@ -23,8 +23,8 @@
         <div class="justify-content-around d-flex">
         <%# This div checks if user or admin has been entered the page %>
             <%= link_to "Back", posts_path, class: "btn btn-secondary" %>          
-            <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
         <% if current_user %>
+            <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-primary" %>
             <%= button_to 'delete',{ controller: "posts", action: "destroy", id: @post.id }, 
                 :onclick => "return confirm('Are you sure you want to delete this post?')", method: :delete, :class => "btn btn-warning" %>
         <% end %>
