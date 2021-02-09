@@ -13,9 +13,8 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
   end
 
   def index
-    
     @categories = Category.all
-    
+    # Here we are definining the ':cate' so we can open new link in the browser with 'cate' and 'category_id'
     cate = params[:cate]
 
     if !cate.nil?
@@ -60,7 +59,7 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
   def destroy
     @post = Post.find(params[:id])
     @post.destroy 
-    
+
     respond_to do |format|
       format.html {redirect_to posts_url, notice: 'Post has been deleted'}
       format.json { head :no_content}
