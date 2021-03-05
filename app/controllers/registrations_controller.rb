@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
     before_action :one_user_registered?, only: [:new, :create] # Admin authentication
-
+    
     protected 
 
     def one_user_registered? # This method allows only one registration
@@ -9,7 +9,6 @@ class RegistrationsController < ApplicationController
                 redirect_to root_path 
             else
                 redirect_to new_user_session_path
-
             end
         end
     end

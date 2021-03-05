@@ -1,12 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
   end
-
+  
   # GET /categories/1
   # GET /categories/1.json
   def show
@@ -23,7 +22,6 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   # POST /categories.json
- 
   def create  # Admin can created category
     @category = Category.new(category_params)
     respond_to do |format|
@@ -56,7 +54,6 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
@@ -68,7 +65,6 @@ class CategoriesController < ApplicationController
     def set_category
       @category = Category.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:category)
