@@ -1,7 +1,5 @@
 class PostsController < ApplicationController
-
 before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :my_work] # Authentications activated, the users can see only these pages
-
   def about 
   end
   
@@ -16,7 +14,6 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
     @categories = Category.all
     # Here we are definining the ':cate' so we can open new link in the browser with 'cate' and 'category_id'
     cate = params[:cate]
-
     if !cate.nil?
       @posts = Post.where(:category_id => cate)
     else
@@ -48,7 +45,6 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
 
   def update
     @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -61,14 +57,12 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
     @post.destroy 
 
     respond_to do |format|
-      format.html {redirect_to posts_url, notice: 'Post has been deleted'}
-      format.json { head :no_content}
+      format.html { redirect_to posts_url, notice: 'Post has been deleted' }
+      format.json { head :no_content }
     end
-    
   end
 
   private
-
   def set_post
     @post = Post.find(params[:id])
   end
@@ -77,4 +71,3 @@ before_action :authenticate_user!, except: [:show, :index, :about, :contacts, :m
     params.require(:post).permit(:title, :content, :category_id, :photo)
   end
 end
-

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" } # The devise rout designed to sign in only 1 admin 
+  devise_for :users, controllers: { registrations: "registrations" } # The devise route is designed to sign in only 1 admin 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy' # The sign-out option completed with destroy method
   end
