@@ -19,4 +19,5 @@ require("channels")
 import "bootstrap";
 import "./application.scss";
 import 'jquery';
+import "@fortawesome/fontawesome-free/css/all"
 
