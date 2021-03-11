@@ -2,7 +2,7 @@
 
 Web-app for sharing pictures.
 
-This application have been designed to create 1 user/admin
+This application have been designed for 1 admin and many visitors
 
 
 * Ruby 2.6.6
