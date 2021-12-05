@@ -1,14 +1,14 @@
-<body class="hero-anime topnav mobile-container">   
+<body class="hero-anime topnav mobile-container">
     <div class="navigation-wrap bg-light start-header start-style mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-md navbar-light">
-                       <a href="/"> <img class="rounded" src="https://i.postimg.cc/QtQmj6fM/Dariusz-Photography-Logo.png" width="150px"> </a>                   
+                       <a href="/"> <img class="rounded" src="https://i.postimg.cc/N0TVNypT/Screenshot-2021-12-05-at-10-24-16.png" width="150px"> </a>
                         <div class="collapse navbar-collapse topnav" id="navbarSupportedContent myTopnav">
                             <ul class="topnav navbar-nav ml-auto py-4 py-md-0" >
                                 <% if current_user %>
-                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">                         
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
                                         <a class="nav-link dropdown-toggle" data-toggle=" dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Admin Panel</a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item"><%= link_to "Create Post", new_post_path %></a>
@@ -17,36 +17,33 @@
                                             <a class="dropdown-item"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></a>
                                         </div>
                                     </li>
-                                <% end %>    
+                                <% end %>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <%= link_to "Home", posts_path(), :class => "nav-link"%>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <%= link_to "Album", posts_my_work_path(), :class => "nav-link"%> 
-                                   
+                                    <%= link_to "Album", posts_my_work_path(), :class => "nav-link"%>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <%= link_to "About Me", posts_about_path(), :class => "nav-link" %>                                      
+                                    <%= link_to "About Me", posts_about_path(), :class => "nav-link" %>
                                 </li>
                                 <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                     <%= link_to "Contacts", posts_contacts_path(), :class => "nav-link"%>
-                                </li>    
+                                </li>
                             </ul>
-                        </div>                      
-                    </nav>      
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 <script>
 
 (function($) { "use strict";
-
     $(function() {
         var header = $(".start-style");
-        $(window).scroll(function() {    
+        $(window).scroll(function() {
             var scroll = $(window).scrollTop();
         
             if (scroll >= 10) {
@@ -55,16 +52,13 @@
                 header.removeClass("scroll-on").addClass('start-style');
             }
         });
-    });     
-        
+    });
     //Animation
-    
     $(document).ready(function() {
         $('body.hero-anime').removeClass('hero-anime');
     });
 
     //Menu On Hover
-        
     $('body').on('mouseenter mouseleave','.nav-item',function(e){
             if ($(window).width() > 750) {
                 var _d=$(e.target).closest('.nav-item');_d.addClass('show');
@@ -73,9 +67,7 @@
                 },1);
             }
     }); 
-
   })(jQuery); 
-
   function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -85,6 +77,3 @@
   }
 }
 </script>
-
-
-		
